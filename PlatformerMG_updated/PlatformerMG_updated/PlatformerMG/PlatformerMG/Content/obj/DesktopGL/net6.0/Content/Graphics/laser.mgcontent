@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Sprites/Player/Attack_2.png</SourceFile>
-  <SourceTime>2024-04-13T17:03:24.8835172+01:00</SourceTime>
-  <DestFile>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/bin/DesktopGL/Content/Sprites/Player/Attack_2.xnb</DestFile>
-  <DestTime>2024-04-13T17:03:28.9972905+01:00</DestTime>
+  <SourceFile>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Graphics/laser.png</SourceFile>
+  <SourceTime>2015-06-01T08:48:42+01:00</SourceTime>
+  <DestFile>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/bin/DesktopGL/Content/Graphics/laser.xnb</DestFile>
+  <DestTime>2024-04-13T16:29:31.3730963+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T12:44:56+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

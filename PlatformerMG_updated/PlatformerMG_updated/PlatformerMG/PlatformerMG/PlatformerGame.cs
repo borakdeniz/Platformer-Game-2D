@@ -24,6 +24,7 @@ namespace PlatformerMG
     /// </summary>
     public class PlatformerGame : Microsoft.Xna.Framework.Game
     {
+
         // Resources for drawing.
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
@@ -35,9 +36,9 @@ namespace PlatformerMG
         ParallaxingBackground bgLayer1;
         ParallaxingBackground bgLayer2;
 
-        // texture to hold the laser.
-        Texture2D laserTexture;
-        List<Laser> laserBeams;
+        CommandManager commandManager = new CommandManager();
+
+
 
         // govern how fast our laser can fire.
         TimeSpan laserSpawnTime;
@@ -72,6 +73,8 @@ namespace PlatformerMG
         // or handle exceptions, both of which can add unnecessary time to level loading.
         private const int numberOfLevels = 3;
 
+
+
         public PlatformerGame()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -88,13 +91,10 @@ namespace PlatformerMG
             bgLayer1 = new ParallaxingBackground();
             bgLayer2 = new ParallaxingBackground();
 
-            // init our laser laserBeams = new List<Laser>();
-            const float SECONDS_IN_MINUTE = 60f;
-            const float RATE_OF_FIRE = 200f;
-            laserSpawnTime = TimeSpan.FromSeconds(SECONDS_IN_MINUTE / RATE_OF_FIRE);
-            previousLaserSpawnTime = TimeSpan.Zero;
+
 
         }
+
 
 
 
@@ -109,10 +109,6 @@ namespace PlatformerMG
 
             // Load fonts
             hudFont = Content.Load<SpriteFont>("Fonts/gameFont");
-
-            // load the texture to serve as the laser laserTexture =
-            Content.Load<Texture2D>("Graphics/laser");
-
 
             // Load overlay textures
             winOverlay = Content.Load<Texture2D>("Overlays/you_win");
@@ -139,6 +135,11 @@ namespace PlatformerMG
             catch { }
 
             LoadNextLevel();
+
+            commandManager.AddKeyboardBinding(Keys.A, level.Player.walkLeft);
+            commandManager.AddKeyboardBinding(Keys.D, level.Player.walkRight);
+            commandManager.AddKeyboardBinding(Keys.Space, level.Player.Jump);
+
         }
 
         /// <summary>
@@ -149,8 +150,7 @@ namespace PlatformerMG
         protected override void Update(GameTime gameTime)
         {
             // Handle polling for our input and handling high-level input
-            HandleInput();
-
+            HandleInput(gameTime);
 
             // update our level, passing down the GameTime along with all of our input states
             level.Update(gameTime, keyboardState, gamePadState, touchState, 
@@ -161,9 +161,12 @@ namespace PlatformerMG
             bgLayer2.Update(gameTime);
 
             base.Update(gameTime);
+
+            commandManager.Update();
+
         }
 
-        private void HandleInput()
+        private void HandleInput(GameTime gameTime)
         {
             // get all of our input states
             keyboardState = Keyboard.GetState();
@@ -188,14 +191,16 @@ namespace PlatformerMG
                 {
                     level.StartNewLife();
                 }
-                else if (level.TimeRemaining == TimeSpan.Zero)
-                {
-                    if (level.ReachedExit)
-                        LoadNextLevel();
-                    else
-                        ReloadCurrentLevel();
-                }
+                //else if (level.TimeRemaining == TimeSpan.Zero)
+                //{
+                //    if (level.ReachedExit)
+                //        LoadNextLevel();
+                //    else
+                //        ReloadCurrentLevel();
+                //}
             }
+
+
 
             wasContinuePressed = continuePressed;
         }
@@ -228,7 +233,6 @@ namespace PlatformerMG
         protected override void Draw(GameTime gameTime)
         {
             graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
-
 
             spriteBatch.Begin();
 

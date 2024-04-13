@@ -20,6 +20,7 @@
     <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Backgrounds/Layers/front_decor.png</File>
     <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Backgrounds/Layers/ground_decor.png</File>
     <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Fonts/gameFont.spritefont</File>
+    <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Graphics/laser.png</File>
     <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Overlays/you_died.png</File>
     <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Overlays/you_lose.png</File>
     <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Overlays/you_win.png</File>
@@ -74,6 +75,7 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File>Backgrounds/Layers/mainBackground.jpg</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

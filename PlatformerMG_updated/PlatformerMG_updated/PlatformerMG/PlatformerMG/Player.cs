@@ -17,6 +17,7 @@ using Microsoft.Xna.Framework.Input.Touch;
 
 namespace PlatformerMG
 {
+    
     /// <summary>
     /// Our fearless adventurer!
     /// </summary>
@@ -28,6 +29,7 @@ namespace PlatformerMG
         private Animation jumpAnimation;
         private Animation dieAnimation;
         private Animation hurtAnimation;
+        private Animation shootAnimation;
 
         private SpriteEffects flip = SpriteEffects.None;
         private AnimationPlayer sprite;
@@ -38,6 +40,8 @@ namespace PlatformerMG
         private SoundEffect fallSound;
         private SoundEffect hurtSound;
 
+        bool isDamaged;
+        public bool isShooting;
         public Level Level
         {
             get { return level; }
@@ -57,14 +61,20 @@ namespace PlatformerMG
         int lives;
         private bool isCooldown;
 
+        public void shootSpell()
+        {
+            isShooting = true;
+        }
         public void takeDamage()
         {
+            isDamaged = true;
+
             // Check if the player is not currently in a cooldown state
             if (!isCooldown)
             {
                 hurtSound.Play();
-                sprite.PlayAnimation(hurtAnimation);
                 lives--;
+                sprite.PlayAnimation(hurtAnimation);
 
 
                 // Start the cooldown timer
@@ -170,6 +180,7 @@ namespace PlatformerMG
             jumpAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Jump"), 0.1f, false);
             hurtAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Hurt"), 0.1f, false);
             dieAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Dead"), 0.1f, false);
+            shootAnimation = new Animation(Level.Content.Load<Texture2D>("Sprites/Player/Attack_2"), 0.1f, false);
 
             // Calculate bounds within texture size.            
             int width = (int)(idleAnimation.FrameWidth * 0.2); 
@@ -214,77 +225,112 @@ namespace PlatformerMG
             AccelerometerState accelState,
             DisplayOrientation orientation)
         {
-            GetInput(keyboardState, gamePadState, touchState, accelState, orientation);
+            //GetInput(keyboardState, gamePadState, touchState, accelState, orientation);
 
             ApplyPhysics(gameTime);
 
             if (IsAlive && IsOnGround)
             {
-                if (Math.Abs(Velocity.X) - 0.02f > 0)
+                if(isDamaged)
+                {
+                    sprite.PlayAnimation(hurtAnimation);
+                }
+                else if (Math.Abs(Velocity.X) - 0.02f > 0 )
                 {
                     sprite.PlayAnimation(runAnimation);
                 }
-                else
+                else if(Math.Abs(Velocity.X) - 0.02f < 0)
                 {
                     sprite.PlayAnimation(idleAnimation);
                 }
+
             }
 
             // Clear input.
             movement = 0.0f;
             isJumping = false;
+            isDamaged = false;
+            isShooting = false;
+
+
         }
 
         /// <summary>
         /// Gets player horizontal movement and jump commands from input.
         /// </summary>
-        private void GetInput(
-            KeyboardState keyboardState, 
-            GamePadState gamePadState, 
-            TouchCollection touchState,
-            AccelerometerState accelState, 
-            DisplayOrientation orientation)
+        //private void GetInput(
+        //    KeyboardState keyboardState, 
+        //    GamePadState gamePadState, 
+        //    TouchCollection touchState,
+        //    AccelerometerState accelState, 
+        //    DisplayOrientation orientation)
+        //{
+        //    // Get analog horizontal movement.
+        //    movement = gamePadState.ThumbSticks.Left.X * MoveStickScale;
+
+        //    // Ignore small movements to prevent running in place.
+        //    if (Math.Abs(movement) < 0.5f)
+        //        movement = 0.0f;
+
+        //    // Move the player with accelerometer
+        //    if (Math.Abs(accelState.Acceleration.Y) > 0.10f)
+        //    {
+        //        // set our movement speed
+        //        movement = MathHelper.Clamp(-accelState.Acceleration.Y * AccelerometerScale, -1f, 1f);
+
+        //        // if we're in the LandscapeLeft orientation, we must reverse our movement
+        //        if (orientation == DisplayOrientation.LandscapeRight)
+        //            movement = -movement;
+        //    }
+
+        //    // If any digital horizontal movement input is found, override the analog movement.
+        //    if (gamePadState.IsButtonDown(Buttons.DPadLeft) ||
+        //        keyboardState.IsKeyDown(Keys.Left) ||
+        //        keyboardState.IsKeyDown(Keys.A))
+        //    {
+        //        movement = -1.0f;
+        //    }
+        //    else if (gamePadState.IsButtonDown(Buttons.DPadRight) ||
+        //             keyboardState.IsKeyDown(Keys.Right) ||
+        //             keyboardState.IsKeyDown(Keys.D))
+        //    {
+        //        movement = 1.0f;
+        //    }
+
+        //    // Check if the player wants to jump.
+        //    isJumping =
+        //        gamePadState.IsButtonDown(JumpButton) ||
+        //        keyboardState.IsKeyDown(Keys.Space) ||
+        //        keyboardState.IsKeyDown(Keys.Up) ||
+        //        keyboardState.IsKeyDown(Keys.W) ||
+        //        touchState.AnyTouch();
+        //}
+
+        public void walkLeft(eButtonState buttonState, Vector2 amount)
         {
-            // Get analog horizontal movement.
-            movement = gamePadState.ThumbSticks.Left.X * MoveStickScale;
-
-            // Ignore small movements to prevent running in place.
-            if (Math.Abs(movement) < 0.5f)
-                movement = 0.0f;
-
-            // Move the player with accelerometer
-            if (Math.Abs(accelState.Acceleration.Y) > 0.10f)
+            if (buttonState == eButtonState.DOWN)
             {
-                // set our movement speed
-                movement = MathHelper.Clamp(-accelState.Acceleration.Y * AccelerometerScale, -1f, 1f);
-
-                // if we're in the LandscapeLeft orientation, we must reverse our movement
-                if (orientation == DisplayOrientation.LandscapeRight)
-                    movement = -movement;
+                    movement = -1.0f;
             }
+        }
 
-            // If any digital horizontal movement input is found, override the analog movement.
-            if (gamePadState.IsButtonDown(Buttons.DPadLeft) ||
-                keyboardState.IsKeyDown(Keys.Left) ||
-                keyboardState.IsKeyDown(Keys.A))
-            {
-                movement = -1.0f;
-            }
-            else if (gamePadState.IsButtonDown(Buttons.DPadRight) ||
-                     keyboardState.IsKeyDown(Keys.Right) ||
-                     keyboardState.IsKeyDown(Keys.D))
+        public void walkRight(eButtonState buttonState, Vector2 amount)
+        {
+            if (buttonState == eButtonState.DOWN)
             {
                 movement = 1.0f;
             }
-
-            // Check if the player wants to jump.
-            isJumping =
-                gamePadState.IsButtonDown(JumpButton) ||
-                keyboardState.IsKeyDown(Keys.Space) ||
-                keyboardState.IsKeyDown(Keys.Up) ||
-                keyboardState.IsKeyDown(Keys.W) ||
-                touchState.AnyTouch();
         }
+
+        public void Jump(eButtonState buttonState, Vector2 amount)
+        {
+            if (buttonState == eButtonState.DOWN)
+            {
+                isJumping =true;
+            }
+        }
+
+
 
         /// <summary>
         /// Updates the player's velocity and position based on input, gravity, etc.
@@ -324,6 +370,8 @@ namespace PlatformerMG
 
             if (Position.Y == previousPosition.Y)
                 velocity.Y = 0;
+
+
         }
 
         /// <summary>
@@ -354,6 +402,7 @@ namespace PlatformerMG
                     if (jumpTime == 0.0f)
                         jumpSound.Play();
 
+                    //jumpTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
                     jumpTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
                     sprite.PlayAnimation(jumpAnimation);
                 }
@@ -467,8 +516,8 @@ namespace PlatformerMG
                     fallSound.Play();
 
                 sprite.PlayAnimation(dieAnimation);
-            
         }
+
 
         /// <summary>
         /// Called when this player reaches the level's exit.

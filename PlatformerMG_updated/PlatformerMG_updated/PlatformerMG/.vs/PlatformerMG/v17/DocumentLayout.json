@@ -1,0 +1,104 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|c:\\users\\eminb.akdeniz\\downloads\\platformermg_updated (1)\\platformermg_updated\\platformermg_updated\\platformermg\\platformermg\\level.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|solutionrelative:platformermg\\level.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\platformermg\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|solutionrelative:platformermg\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\platformermg\\platformergame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|solutionrelative:platformermg\\platformergame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\platformermg\\accelerometer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|solutionrelative:platformermg\\accelerometer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\platformermg\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|solutionrelative:platformermg\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PlatformerGame.cs",
+              "DocumentMoniker": "C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\PlatformerGame.cs",
+              "RelativeDocumentMoniker": "PlatformerMG\\PlatformerGame.cs",
+              "ToolTip": "C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\PlatformerGame.cs",
+              "RelativeToolTip": "PlatformerMG\\PlatformerGame.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAApwBsAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-13T00:00:04.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Accelerometer.cs",
+              "DocumentMoniker": "C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\Accelerometer.cs",
+              "RelativeDocumentMoniker": "PlatformerMG\\Accelerometer.cs",
+              "ToolTip": "C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\Accelerometer.cs",
+              "RelativeToolTip": "PlatformerMG\\Accelerometer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T22:45:18.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Level.cs",
+              "DocumentMoniker": "C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\Level.cs",
+              "RelativeDocumentMoniker": "PlatformerMG\\Level.cs",
+              "ToolTip": "C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\Level.cs",
+              "RelativeToolTip": "PlatformerMG\\Level.cs",
+              "ViewState": "AQIAABMBAAAAAAAAAAApwCgBAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T22:44:14.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\Player.cs",
+              "RelativeDocumentMoniker": "PlatformerMG\\Player.cs",
+              "ToolTip": "C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\Player.cs",
+              "RelativeToolTip": "PlatformerMG\\Player.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADsAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T22:40:39.728Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Game1.cs",
+              "DocumentMoniker": "C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\Game1.cs",
+              "RelativeDocumentMoniker": "PlatformerMG\\Game1.cs",
+              "ToolTip": "C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\Game1.cs",
+              "RelativeToolTip": "PlatformerMG\\Game1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T16:49:48.943Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

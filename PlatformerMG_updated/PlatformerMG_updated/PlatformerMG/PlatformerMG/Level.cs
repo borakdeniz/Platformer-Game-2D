@@ -24,6 +24,7 @@ namespace PlatformerMG
     /// The level owns the player and controls the game's win and lose
     /// conditions as well as scoring.
     /// </summary>
+    
     class Level : IDisposable
     {
         // Physical structure of the level.
@@ -31,6 +32,7 @@ namespace PlatformerMG
         private Texture2D[] layers;
         // The layer which entities are drawn on top of.
         private const int EntityLayer = 2;
+
 
         // Entities in the level.
         public Player Player
@@ -101,17 +103,19 @@ namespace PlatformerMG
 
             // Load background layer textures. For now, all levels must
             // use the same backgrounds and only use the left-most part of them.
-            layers = new Texture2D[3];
-            for (int i = 0; i < layers.Length; ++i)
-            {
-                // Choose a random segment if each background layer for level variety.
-                int segmentIndex = levelIndex;
-                layers[i] = Content.Load<Texture2D>("Backgrounds/Layer" + i + "_" + segmentIndex);
-            }
+            //layers = new Texture2D[3];
+            //for (int i = 0; i < layers.Length; ++i)
+            //{
+            //    // Choose a random segment if each background layer for level variety.
+            //    int segmentIndex = levelIndex;
+            //    layers[i] = Content.Load<Texture2D>("Backgrounds/Layer" + i + "_" + segmentIndex);
+            //}
 
             // Load sounds.
             exitReachedSound = Content.Load<SoundEffect>("Sounds/ExitReached");
         }
+
+
 
         /// <summary>
         /// Iterates over every tile in the structure file and loads its
@@ -516,8 +520,8 @@ namespace PlatformerMG
         /// </summary>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            for (int i = 0; i <= EntityLayer; ++i)
-                spriteBatch.Draw(layers[i], Vector2.Zero, Color.White);
+            //for (int i = 0; i <= EntityLayer; ++i)
+            //    spriteBatch.Draw(layers[i], Vector2.Zero, Color.White);
 
             DrawTiles(spriteBatch);
 
@@ -529,8 +533,8 @@ namespace PlatformerMG
             foreach (Enemy enemy in enemies)
                 enemy.Draw(gameTime, spriteBatch);
 
-            for (int i = EntityLayer + 1; i < layers.Length; ++i)
-                spriteBatch.Draw(layers[i], Vector2.Zero, Color.White);
+            //for (int i = EntityLayer + 1; i < layers.Length; ++i)
+            //    spriteBatch.Draw(layers[i], Vector2.Zero, Color.White);
         }
 
         /// <summary>

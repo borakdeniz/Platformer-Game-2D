@@ -14,6 +14,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Input.Touch;
+using System.Collections.Generic;
 
 
 namespace PlatformerMG
@@ -26,6 +27,22 @@ namespace PlatformerMG
         // Resources for drawing.
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
+
+        // Image used to display the static background
+        Texture2D mainBackground;
+
+        // Parallaxing Layers
+        ParallaxingBackground bgLayer1;
+        ParallaxingBackground bgLayer2;
+
+        // texture to hold the laser.
+        Texture2D laserTexture;
+        List<Laser> laserBeams;
+
+        // govern how fast our laser can fire.
+        TimeSpan laserSpawnTime;
+        TimeSpan previousLaserSpawnTime;
+
 
         // Global content.
         private SpriteFont hudFont;
@@ -66,7 +83,20 @@ namespace PlatformerMG
 #endif
 
             Accelerometer.Initialize();
+
+            //Background
+            bgLayer1 = new ParallaxingBackground();
+            bgLayer2 = new ParallaxingBackground();
+
+            // init our laser laserBeams = new List<Laser>();
+            const float SECONDS_IN_MINUTE = 60f;
+            const float RATE_OF_FIRE = 200f;
+            laserSpawnTime = TimeSpan.FromSeconds(SECONDS_IN_MINUTE / RATE_OF_FIRE);
+            previousLaserSpawnTime = TimeSpan.Zero;
+
         }
+
+
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
@@ -80,10 +110,22 @@ namespace PlatformerMG
             // Load fonts
             hudFont = Content.Load<SpriteFont>("Fonts/gameFont");
 
+            // load the texture to serve as the laser laserTexture =
+            Content.Load<Texture2D>("Graphics/laser");
+
+
             // Load overlay textures
             winOverlay = Content.Load<Texture2D>("Overlays/you_win");
             loseOverlay = Content.Load<Texture2D>("Overlays/you_lose");
             diedOverlay = Content.Load<Texture2D>("Overlays/you_died");
+
+            // Load the parallaxing background
+            bgLayer1.Initialize(Content, "Backgrounds/Layers/back_decor", GraphicsDevice.Viewport.Width,
+            GraphicsDevice.Viewport.Height, -1);
+            bgLayer2.Initialize(Content, "Backgrounds/Layers/back_decor", GraphicsDevice.Viewport.Width,
+            GraphicsDevice.Viewport.Height, -2);
+            mainBackground = Content.Load<Texture2D>("Backgrounds/Layers/mainBackground");
+
 
             //Known issue that you get exceptions if you use Media PLayer while connected to your PC
             //See http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/c8a243d2-d360-46b1-96bd-62b1ef268c66
@@ -109,9 +151,14 @@ namespace PlatformerMG
             // Handle polling for our input and handling high-level input
             HandleInput();
 
+
             // update our level, passing down the GameTime along with all of our input states
             level.Update(gameTime, keyboardState, gamePadState, touchState, 
                          accelerometerState, Window.CurrentOrientation);
+
+            // Update the parallaxing background
+            bgLayer1.Update(gameTime);
+            bgLayer2.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -184,6 +231,14 @@ namespace PlatformerMG
 
 
             spriteBatch.Begin();
+
+            //Draw the Main Background Texture
+            spriteBatch.Draw(mainBackground, Vector2.Zero, Color.White);
+            // Draw the moving background
+            bgLayer1.Draw(spriteBatch);
+            bgLayer2.Draw(spriteBatch);
+
+
 
             level.Draw(gameTime, spriteBatch);
 

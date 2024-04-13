@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/eminb.AKDENIZ/Downloads/PlatformerMG_updated (1)/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Overlays/you_win.png</SourceFile>
+  <SourceFile>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Overlays/you_win.png</SourceFile>
   <SourceTime>2024-04-11T23:09:24.4535873+01:00</SourceTime>
-  <DestFile>C:/Users/eminb.AKDENIZ/Downloads/PlatformerMG_updated (1)/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/bin/DesktopGL/Overlays/you_win.xnb</DestFile>
-  <DestTime>2024-04-12T23:39:44.2354152+01:00</DestTime>
+  <DestFile>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/bin/DesktopGL/Overlays/you_win.xnb</DestFile>
+  <DestTime>2024-04-13T15:15:40.730728+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T12:44:56+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

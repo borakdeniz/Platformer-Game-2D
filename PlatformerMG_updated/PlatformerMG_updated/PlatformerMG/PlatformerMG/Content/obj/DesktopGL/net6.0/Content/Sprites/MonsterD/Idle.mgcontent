@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/eminb.AKDENIZ/Downloads/PlatformerMG_updated (1)/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Sprites/MonsterD/Idle.png</SourceFile>
+  <SourceFile>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Sprites/MonsterD/Idle.png</SourceFile>
   <SourceTime>2024-04-11T23:09:24.8127187+01:00</SourceTime>
-  <DestFile>C:/Users/eminb.AKDENIZ/Downloads/PlatformerMG_updated (1)/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/bin/DesktopGL/Content/Sprites/MonsterD/Idle.xnb</DestFile>
-  <DestTime>2024-04-12T16:30:31.2919586+01:00</DestTime>
+  <DestFile>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/bin/DesktopGL/Content/Sprites/MonsterD/Idle.xnb</DestFile>
+  <DestTime>2024-04-13T14:52:09.6722792+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T12:44:56+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -62,9 +62,10 @@ namespace PlatformerMG
             // Check if the player is not currently in a cooldown state
             if (!isCooldown)
             {
+                hurtSound.Play();
                 sprite.PlayAnimation(hurtAnimation);
                 lives--;
-                hurtSound.Play();
+
 
                 // Start the cooldown timer
                 isCooldown = true;

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\PlatformerMG.csproj": {}
+    "D:\\Github\\Platformer2D\\Platformer2D\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\PlatformerMG.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\PlatformerMG.csproj": {
+    "D:\\Github\\Platformer2D\\Platformer2D\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\PlatformerMG.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\PlatformerMG.csproj",
+        "projectUniqueName": "D:\\Github\\Platformer2D\\Platformer2D\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\PlatformerMG.csproj",
         "projectName": "PlatformerMG",
-        "projectPath": "C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\PlatformerMG.csproj",
+        "projectPath": "D:\\Github\\Platformer2D\\Platformer2D\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\PlatformerMG.csproj",
         "packagesPath": "C:\\Users\\eminb.AKDENIZ\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eminb.AKDENIZ\\Downloads\\PlatformerMG_updated (1)\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\obj\\",
+        "outputPath": "D:\\Github\\Platformer2D\\Platformer2D\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

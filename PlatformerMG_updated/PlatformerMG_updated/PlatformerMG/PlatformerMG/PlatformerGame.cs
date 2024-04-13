@@ -24,6 +24,7 @@ namespace PlatformerMG
     /// </summary>
     public class PlatformerGame : Microsoft.Xna.Framework.Game
     {
+        Camera camera;
 
         // Resources for drawing.
         private GraphicsDeviceManager graphics;
@@ -37,8 +38,6 @@ namespace PlatformerMG
         ParallaxingBackground bgLayer2;
 
         CommandManager commandManager = new CommandManager();
-
-
 
         // govern how fast our laser can fire.
         TimeSpan laserSpawnTime;
@@ -74,7 +73,6 @@ namespace PlatformerMG
         private const int numberOfLevels = 3;
 
 
-
         public PlatformerGame()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -94,8 +92,6 @@ namespace PlatformerMG
 
 
         }
-
-
 
 
         /// <summary>
@@ -136,9 +132,11 @@ namespace PlatformerMG
 
             LoadNextLevel();
 
+            camera = new Camera();
             commandManager.AddKeyboardBinding(Keys.A, level.Player.walkLeft);
             commandManager.AddKeyboardBinding(Keys.D, level.Player.walkRight);
             commandManager.AddKeyboardBinding(Keys.Space, level.Player.Jump);
+
 
         }
 
@@ -159,6 +157,8 @@ namespace PlatformerMG
             // Update the parallaxing background
             bgLayer1.Update(gameTime);
             bgLayer2.Update(gameTime);
+
+            camera.Follow(level.Player, graphics);
 
             base.Update(gameTime);
 
@@ -220,11 +220,11 @@ namespace PlatformerMG
                 level = new Level(Services, fileStream, levelIndex);
         }
 
-        private void ReloadCurrentLevel()
-        {
-            --levelIndex;
-            LoadNextLevel();
-        }
+        //private void ReloadCurrentLevel()
+        //{
+        //    --levelIndex;
+        //    LoadNextLevel();
+        //}
 
         /// <summary>
         /// Draws the game from background to foreground.
@@ -234,14 +234,13 @@ namespace PlatformerMG
         {
             graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();
 
+            spriteBatch.Begin(transformMatrix: camera.Transform);
             //Draw the Main Background Texture
             spriteBatch.Draw(mainBackground, Vector2.Zero, Color.White);
             // Draw the moving background
             bgLayer1.Draw(spriteBatch);
             bgLayer2.Draw(spriteBatch);
-
 
 
             level.Draw(gameTime, spriteBatch);

@@ -142,7 +142,7 @@ namespace PlatformerMG
         private bool wasJumping;
         private float jumpTime;
 
-        private Rectangle localBounds;
+        public Rectangle localBounds;
         /// <summary>
         /// Gets a rectangle which bounds this player in world space.
         /// </summary>
@@ -251,60 +251,7 @@ namespace PlatformerMG
             isJumping = false;
             isDamaged = false;
             isShooting = false;
-
-
         }
-
-        /// <summary>
-        /// Gets player horizontal movement and jump commands from input.
-        /// </summary>
-        //private void GetInput(
-        //    KeyboardState keyboardState, 
-        //    GamePadState gamePadState, 
-        //    TouchCollection touchState,
-        //    AccelerometerState accelState, 
-        //    DisplayOrientation orientation)
-        //{
-        //    // Get analog horizontal movement.
-        //    movement = gamePadState.ThumbSticks.Left.X * MoveStickScale;
-
-        //    // Ignore small movements to prevent running in place.
-        //    if (Math.Abs(movement) < 0.5f)
-        //        movement = 0.0f;
-
-        //    // Move the player with accelerometer
-        //    if (Math.Abs(accelState.Acceleration.Y) > 0.10f)
-        //    {
-        //        // set our movement speed
-        //        movement = MathHelper.Clamp(-accelState.Acceleration.Y * AccelerometerScale, -1f, 1f);
-
-        //        // if we're in the LandscapeLeft orientation, we must reverse our movement
-        //        if (orientation == DisplayOrientation.LandscapeRight)
-        //            movement = -movement;
-        //    }
-
-        //    // If any digital horizontal movement input is found, override the analog movement.
-        //    if (gamePadState.IsButtonDown(Buttons.DPadLeft) ||
-        //        keyboardState.IsKeyDown(Keys.Left) ||
-        //        keyboardState.IsKeyDown(Keys.A))
-        //    {
-        //        movement = -1.0f;
-        //    }
-        //    else if (gamePadState.IsButtonDown(Buttons.DPadRight) ||
-        //             keyboardState.IsKeyDown(Keys.Right) ||
-        //             keyboardState.IsKeyDown(Keys.D))
-        //    {
-        //        movement = 1.0f;
-        //    }
-
-        //    // Check if the player wants to jump.
-        //    isJumping =
-        //        gamePadState.IsButtonDown(JumpButton) ||
-        //        keyboardState.IsKeyDown(Keys.Space) ||
-        //        keyboardState.IsKeyDown(Keys.Up) ||
-        //        keyboardState.IsKeyDown(Keys.W) ||
-        //        touchState.AnyTouch();
-        //}
 
         public void walkLeft(eButtonState buttonState, Vector2 amount)
         {
@@ -326,7 +273,7 @@ namespace PlatformerMG
         {
             if (buttonState == eButtonState.DOWN)
             {
-                isJumping =true;
+                isJumping = true;
             }
         }
 

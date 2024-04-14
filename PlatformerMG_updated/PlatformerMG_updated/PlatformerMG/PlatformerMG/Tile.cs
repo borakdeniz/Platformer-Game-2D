@@ -1,6 +1,9 @@
 ﻿#region File Description
 //-----------------------------------------------------------------------------
-// Tile.cs
+//
+//
+//
+// .cs
 //
 // Microsoft XNA Community Game Platform
 // Copyright (C) Microsoft Corporation. All rights reserved.
@@ -16,7 +19,7 @@ namespace PlatformerMG
     /// <summary>
     /// Controls the collision detection and response behavior of a tile.
     /// </summary>
-    enum TileCollision
+    public enum TileCollision
     {
         /// <summary>
         /// A passable tile is one which does not hinder player motion at all.
@@ -58,5 +61,6 @@ namespace PlatformerMG
             Texture = texture;
             Collision = collision;
         }
+        public TileCollision getTileType() { return Collision; }
     }
 }

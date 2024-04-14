@@ -25,13 +25,15 @@ namespace PlatformerMG
     /// conditions as well as scoring.
     /// </summary>
     
-    class Level : IDisposable
+    public class Level : IDisposable
     {
         // Physical structure of the level.
         private Tile[,] tiles;
+        public List<(Rectangle, TileCollision)> TileMapInfo = new List<(Rectangle, TileCollision)>();
         private Texture2D[] layers;
         // The layer which entities are drawn on top of.
         private const int EntityLayer = 2;
+
 
 
         // Entities in the level.
@@ -549,11 +551,31 @@ namespace PlatformerMG
                 {
                     // If there is a visible tile in that position
                     Texture2D texture = tiles[x, y].Texture;
+
                     if (texture != null)
                     {
                         // Draw it in screen space.
                         Vector2 position = new Vector2(x, y) * Tile.Size;
                         spriteBatch.Draw(texture, position, Color.White);
+                    }
+                }
+            }
+        }
+        public void CollisionTiles()
+        {
+            for (int y = 0; y < Height; ++y)
+            {
+                for (int x = 0; x < Width; ++x)
+                {
+                    // If there is a visible tile in that position
+                    Texture2D texture = tiles[x, y].Texture;
+                    TileCollision collisionType = tiles[x, y].getTileType();
+                    
+                        if (texture != null)
+                    {
+                        Vector2 position = new Vector2(x, y);
+                        TileMapInfo.Add((GetBounds((int)position.X, (int)position.Y), collisionType));
+
                     }
                 }
             }

@@ -26,6 +26,11 @@ namespace PlatformerMG
     {
         Camera camera;
 
+        List<Rectangle> collisionRects;
+        CollisionManager collisionManager;
+        Rectangle startRect;
+        Rectangle endRect;
+
         // Resources for drawing.
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
@@ -89,6 +94,8 @@ namespace PlatformerMG
             bgLayer1 = new ParallaxingBackground();
             bgLayer2 = new ParallaxingBackground();
 
+            collisionManager = new CollisionManager();
+
 
 
         }
@@ -119,6 +126,7 @@ namespace PlatformerMG
             mainBackground = Content.Load<Texture2D>("Backgrounds/Layers/mainBackground");
 
 
+
             //Known issue that you get exceptions if you use Media PLayer while connected to your PC
             //See http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/c8a243d2-d360-46b1-96bd-62b1ef268c66
             //Which means its impossible to test this from VS.
@@ -132,10 +140,17 @@ namespace PlatformerMG
 
             LoadNextLevel();
 
+            foreach (var o in level.TileMapInfo)
+            {
+                collisionManager.AddCollidable(o.Item1, o.Item2);
+            }
+
+
             camera = new Camera();
             commandManager.AddKeyboardBinding(Keys.A, level.Player.walkLeft);
             commandManager.AddKeyboardBinding(Keys.D, level.Player.walkRight);
             commandManager.AddKeyboardBinding(Keys.Space, level.Player.Jump);
+
 
 
         }
@@ -163,6 +178,8 @@ namespace PlatformerMG
             base.Update(gameTime);
 
             commandManager.Update();
+
+            collisionManager.Update(level.Player);
 
         }
 
@@ -218,6 +235,7 @@ namespace PlatformerMG
             string levelPath = string.Format("Content/Levels/{0}.txt", levelIndex);
             using (Stream fileStream = TitleContainer.OpenStream(levelPath))
                 level = new Level(Services, fileStream, levelIndex);
+            level.CollisionTiles();
         }
 
         //private void ReloadCurrentLevel()
@@ -245,8 +263,10 @@ namespace PlatformerMG
 
             level.Draw(gameTime, spriteBatch);
 
-            DrawHud();
+            spriteBatch.End();
 
+            spriteBatch.Begin();
+            DrawHud();
             spriteBatch.End();
 
             base.Draw(gameTime);

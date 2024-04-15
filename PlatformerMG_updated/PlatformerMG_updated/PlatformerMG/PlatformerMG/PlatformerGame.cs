@@ -24,6 +24,7 @@ namespace PlatformerMG
     /// </summary>
     public class PlatformerGame : Microsoft.Xna.Framework.Game
     {
+
         Camera camera;
 
         List<Rectangle> collisionRects;
@@ -32,8 +33,11 @@ namespace PlatformerMG
         Rectangle endRect;
 
         // Resources for drawing.
-        private GraphicsDeviceManager graphics;
-        private SpriteBatch spriteBatch;
+        public GraphicsDeviceManager graphics;
+        public SpriteBatch spriteBatch;
+
+        private State currentState;
+        private State nextState;
 
         // Image used to display the static background
         Texture2D mainBackground;
@@ -78,6 +82,10 @@ namespace PlatformerMG
         private const int numberOfLevels = 3;
 
 
+        public void ChangeState(State state)
+        {
+            nextState = state;
+        }
         public PlatformerGame()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -107,9 +115,13 @@ namespace PlatformerMG
         /// </summary>
         protected override void LoadContent()
         {
+            IsMouseVisible = true;
+
+            currentState = new MenuState(this, graphics.GraphicsDevice, Content);
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            
             // Load fonts
             hudFont = Content.Load<SpriteFont>("Fonts/gameFont");
 
@@ -123,7 +135,7 @@ namespace PlatformerMG
             GraphicsDevice.Viewport.Height, -1);
             bgLayer2.Initialize(Content, "Backgrounds/Layers/back_decor", GraphicsDevice.Viewport.Width,
             GraphicsDevice.Viewport.Height, -2);
-            mainBackground = Content.Load<Texture2D>("Backgrounds/Layers/mainBackground");
+            mainBackground = Content.Load<Texture2D>("Backgrounds/Layers/mainbackground");
 
 
 
@@ -162,6 +174,14 @@ namespace PlatformerMG
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            if(nextState != null) 
+            {
+                currentState = nextState; 
+                 nextState = null;
+            }
+            currentState.Update(gameTime);
+            currentState.PostUpdate(gameTime);
+
             // Handle polling for our input and handling high-level input
             HandleInput(gameTime);
 
@@ -252,15 +272,19 @@ namespace PlatformerMG
         {
             graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
 
-
-            spriteBatch.Begin(transformMatrix: camera.Transform);
-            //Draw the Main Background Texture
+            spriteBatch.Begin();
+           
             spriteBatch.Draw(mainBackground, Vector2.Zero, Color.White);
             // Draw the moving background
             bgLayer1.Draw(spriteBatch);
             bgLayer2.Draw(spriteBatch);
+            spriteBatch.End();
 
 
+            //Draw the Main Background Texture
+
+
+            spriteBatch.Begin(transformMatrix: camera.Transform);
             level.Draw(gameTime, spriteBatch);
 
             spriteBatch.End();
@@ -268,7 +292,7 @@ namespace PlatformerMG
             spriteBatch.Begin();
             DrawHud();
             spriteBatch.End();
-
+            currentState.Draw(gameTime, spriteBatch);
             base.Draw(gameTime);
         }
 

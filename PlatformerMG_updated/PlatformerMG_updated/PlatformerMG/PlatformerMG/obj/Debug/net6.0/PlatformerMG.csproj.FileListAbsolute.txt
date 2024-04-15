@@ -169,3 +169,8 @@ D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\Pl
 D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Backgrounds\Layers\ground_decor.xnb
 D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Backgrounds\Layers\mainBackground.xnb
 D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Graphics\laser.xnb
+D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Backgrounds\Layers\elven_background.xnb
+D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Backgrounds\Layers\jungle_background.xnb
+D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Backgrounds\Layers\forest_background.xnb
+D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Controls\Button.xnb
+D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Overlays\background_menu.xnb

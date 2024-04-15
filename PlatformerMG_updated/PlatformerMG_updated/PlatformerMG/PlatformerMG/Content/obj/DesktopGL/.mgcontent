@@ -17,10 +17,15 @@
     <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Backgrounds/Layers/back_decor.png</File>
     <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Backgrounds/Layers/back_land.png</File>
     <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Backgrounds/Layers/battleground.png</File>
+    <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Backgrounds/Layers/ferdinand-ladera-elvencityinforest1.jpg</File>
+    <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Backgrounds/Layers/forest_background.jpg</File>
     <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Backgrounds/Layers/front_decor.png</File>
     <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Backgrounds/Layers/ground_decor.png</File>
+    <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Backgrounds/Layers/jungle_background.jpg</File>
+    <File>C:/Users/eminb.AKDENIZ/Downloads/Button.png</File>
     <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Fonts/gameFont.spritefont</File>
     <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Graphics/laser.png</File>
+    <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Overlays/background_menu.jpeg</File>
     <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Overlays/you_died.png</File>
     <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Overlays/you_lose.png</File>
     <File>D:/Github/Platformer2D/Platformer2D/PlatformerMG_updated/PlatformerMG_updated/PlatformerMG/PlatformerMG/Content/Overlays/you_win.png</File>
@@ -78,7 +83,12 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+    <File>Backgrounds/Layers/elven_background.jpg</File>
     <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File>Controls/Button.png</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

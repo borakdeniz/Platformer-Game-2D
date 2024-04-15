@@ -354,13 +354,13 @@ namespace PlatformerMG
             // If the player wants to jump
             if (isJumping)
             {
+
                 // Begin or continue a jump
                 if ((!wasJumping && IsOnGround) || jumpTime > 0.0f)
                 {
                     if (jumpTime == 0.0f)
                         jumpSound.Play();
 
-                    //jumpTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
                     jumpTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
                     sprite.PlayAnimation(jumpAnimation);
                 }

@@ -30,14 +30,14 @@ namespace PlatformerMG
 
             newGameButton.Click += NewGameButton_Click;
 
-            var loadGameButton = new Button(buttonTexture, buttonFont)
+            var highScoresButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2(500, 175),
                 Text = "High Scores",
 
             };
 
-            loadGameButton.Click += LoadGameButton_Click;
+            highScoresButton.Click += highScoresButton_Click;
 
             var quitGameButton = new Button(buttonTexture, buttonFont)
             {
@@ -50,10 +50,10 @@ namespace PlatformerMG
             _components = new List<Component>()
       {
         newGameButton,
-        loadGameButton,
+        highScoresButton,
         quitGameButton,
       };
-        }
+    }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -65,14 +65,15 @@ namespace PlatformerMG
             spriteBatch.End();
         }
 
-        private void LoadGameButton_Click(object sender, EventArgs e)
+        private void highScoresButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Load Game");
+            _game.ChangeState(new HighScoreState(_game, _graphicsDevice, _content));
         }
 
         private void NewGameButton_Click(object sender, EventArgs e)
         {
             _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
+            
         }
 
         public override void PostUpdate(GameTime gameTime)

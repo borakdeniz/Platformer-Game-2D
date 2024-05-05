@@ -66,6 +66,7 @@ namespace PlatformerMG
         }
         bool reachedExit;
 
+
         public TimeSpan TimeRemaining
         {
             get { return timeRemaining; }

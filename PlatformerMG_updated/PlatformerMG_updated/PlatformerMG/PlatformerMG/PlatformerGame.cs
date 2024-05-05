@@ -15,6 +15,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Input.Touch;
 using System.Collections.Generic;
+using System.Reflection;
 
 
 namespace PlatformerMG
@@ -24,7 +25,7 @@ namespace PlatformerMG
     /// </summary>
     public class PlatformerGame : Microsoft.Xna.Framework.Game
     {
-
+        public bool GameStarted = false;
         Camera camera;
 
         List<Rectangle> collisionRects;
@@ -74,6 +75,9 @@ namespace PlatformerMG
         private KeyboardState keyboardState;
         private TouchCollection touchState;
         private AccelerometerState accelerometerState;
+
+        private int _score;
+        public ScoreManager scoreManager;
         
         // The number of levels in the Levels directory of our content. We assume that
         // levels in our content are 0-based and that all numbers under this constant
@@ -117,6 +121,8 @@ namespace PlatformerMG
         {
             IsMouseVisible = true;
 
+            scoreManager = ScoreManager.Load();
+
             currentState = new MenuState(this, graphics.GraphicsDevice, Content);
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -157,11 +163,16 @@ namespace PlatformerMG
                 collisionManager.AddCollidable(o.Item1, o.Item2);
             }
 
-
             camera = new Camera();
             commandManager.AddKeyboardBinding(Keys.A, level.Player.walkLeft);
             commandManager.AddKeyboardBinding(Keys.D, level.Player.walkRight);
             commandManager.AddKeyboardBinding(Keys.Space, level.Player.Jump);
+
+
+
+
+
+
 
 
 
@@ -185,61 +196,71 @@ namespace PlatformerMG
             // Handle polling for our input and handling high-level input
             HandleInput(gameTime);
 
-            // update our level, passing down the GameTime along with all of our input states
-            level.Update(gameTime, keyboardState, gamePadState, touchState, 
-                         accelerometerState, Window.CurrentOrientation);
+            if(GameStarted)
+            {
+                level.Update(gameTime, keyboardState, gamePadState, touchState,
+             accelerometerState, Window.CurrentOrientation);
 
-            // Update the parallaxing background
-            bgLayer1.Update(gameTime);
-            bgLayer2.Update(gameTime);
+                if (level.TimeRemaining.Seconds == 0)
+                {
+                    scoreManager.Add(new Score()
+                    {
+                        PlayerName = "Bora",
+                        Value = level.Score,
+                    });
 
-            camera.Follow(level.Player, graphics);
+                    ScoreManager.Save(scoreManager);
+                }
+                camera.Follow(level.Player, graphics);
 
-            base.Update(gameTime);
+                // update our level, passing down the GameTime along with all of our input states
+                base.Update(gameTime);
 
-            commandManager.Update();
 
-            collisionManager.Update(level.Player);
+                // Update the parallaxing background
+                bgLayer1.Update(gameTime);
+                bgLayer2.Update(gameTime);
+
+                collisionManager.Update(level.Player);
+
+                commandManager.Update();
+            }
+
+
+
 
         }
 
         private void HandleInput(GameTime gameTime)
         {
             // get all of our input states
-            keyboardState = Keyboard.GetState();
-            gamePadState = GamePad.GetState(PlayerIndex.One);
-            touchState = TouchPanel.GetState();
-            accelerometerState = Accelerometer.GetState();
+            //keyboardState = Keyboard.GetState();
+            //gamePadState = GamePad.GetState(PlayerIndex.One);
+            //touchState = TouchPanel.GetState();
+            //accelerometerState = Accelerometer.GetState();
 
             // Exit the game when back is pressed.
-            if (gamePadState.Buttons.Back == ButtonState.Pressed)
-                Exit();
+            //if (gamePadState.Buttons.Back == ButtonState.Pressed)
+            //    Exit();
 
-            bool continuePressed =
-                keyboardState.IsKeyDown(Keys.Space) ||
-                gamePadState.IsButtonDown(Buttons.A) ||
-                touchState.AnyTouch();
+            //bool continuePressed =
+            //    keyboardState.IsKeyDown(Keys.Space) ||
+            //    gamePadState.IsButtonDown(Buttons.A) ||
+            //    touchState.AnyTouch();
 
             // Perform the appropriate action to advance the game and
             // to get the player back to playing.
-            if (!wasContinuePressed && continuePressed)
-            {
                 if (!level.Player.IsAlive)
                 {
                     level.StartNewLife();
                 }
-                //else if (level.TimeRemaining == TimeSpan.Zero)
-                //{
-                //    if (level.ReachedExit)
-                //        LoadNextLevel();
-                //    else
-                //        ReloadCurrentLevel();
-                //}
-            }
-
-
-
-            wasContinuePressed = continuePressed;
+                else if (level.TimeRemaining == TimeSpan.Zero)
+                {
+                    if (level.ReachedExit)
+                        LoadNextLevel();
+                    //else
+                    //    ReloadCurrentLevel();
+                }
         }
 
         private void LoadNextLevel()
@@ -272,26 +293,30 @@ namespace PlatformerMG
         {
             graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();
-           
-            spriteBatch.Draw(mainBackground, Vector2.Zero, Color.White);
-            // Draw the moving background
-            bgLayer1.Draw(spriteBatch);
-            bgLayer2.Draw(spriteBatch);
-            spriteBatch.End();
+
+                spriteBatch.Begin();
+
+                spriteBatch.Draw(mainBackground, Vector2.Zero, Color.White);
+                // Draw the moving background
+                bgLayer1.Draw(spriteBatch);
+                bgLayer2.Draw(spriteBatch);
+                spriteBatch.End();
+
+                //Draw the Main Background Texture
+                spriteBatch.Begin(transformMatrix: camera.Transform);
+                level.Draw(gameTime, spriteBatch);
+                spriteBatch.End();
+
+                spriteBatch.Begin();
+                DrawHud();
+                spriteBatch.End();
+
+            
 
 
-            //Draw the Main Background Texture
 
 
-            spriteBatch.Begin(transformMatrix: camera.Transform);
-            level.Draw(gameTime, spriteBatch);
 
-            spriteBatch.End();
-
-            spriteBatch.Begin();
-            DrawHud();
-            spriteBatch.End();
             currentState.Draw(gameTime, spriteBatch);
             base.Draw(gameTime);
         }

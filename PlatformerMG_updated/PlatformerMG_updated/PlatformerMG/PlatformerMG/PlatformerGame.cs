@@ -76,7 +76,7 @@ namespace PlatformerMG
         private TouchCollection touchState;
         private AccelerometerState accelerometerState;
 
-        private int _score;
+        public int _score;
         public ScoreManager scoreManager;
         
         // The number of levels in the Levels directory of our content. We assume that
@@ -207,8 +207,9 @@ namespace PlatformerMG
                     {
                         PlayerName = "Bora",
                         Value = level.Score,
+                        
                     });
-
+                    _score = level.Score;
                     ScoreManager.Save(scoreManager);
                 }
                 camera.Follow(level.Player, graphics);
@@ -256,30 +257,32 @@ namespace PlatformerMG
                 }
                 else if (level.TimeRemaining == TimeSpan.Zero)
                 {
-                    if (level.ReachedExit)
-                        LoadNextLevel();
+                    //if (level.ReachedExit)
+                    //    LoadNextLevel();
                     //else
                     //    ReloadCurrentLevel();
                 }
         }
 
-        private void LoadNextLevel()
+        public void LoadNextLevel()
         {
             // move to the next level
-            levelIndex = (levelIndex + 1) % numberOfLevels;
+            //levelIndex = (levelIndex + 1) % numberOfLevels;
 
             // Unloads the content for the current level before loading the next one.
             if (level != null)
                 level.Dispose();
 
             // Load the level.
-            string levelPath = string.Format("Content/Levels/{0}.txt", levelIndex);
+            //string levelPath = string.Format("Content/Levels/{0}.txt", levelIndex);
+
+            string levelPath = string.Format("Content/Levels/{0}.txt",0);
             using (Stream fileStream = TitleContainer.OpenStream(levelPath))
                 level = new Level(Services, fileStream, levelIndex);
             level.CollisionTiles();
         }
 
-        //private void ReloadCurrentLevel()
+        //public void ReloadCurrentLevel()
         //{
         //    --levelIndex;
         //    LoadNextLevel();
@@ -358,6 +361,7 @@ namespace PlatformerMG
                 if (level.ReachedExit)
                 {
                     status = winOverlay;
+                    nextState =  new EndState(this, graphics.GraphicsDevice, Content); 
                 }
                 else
                 {

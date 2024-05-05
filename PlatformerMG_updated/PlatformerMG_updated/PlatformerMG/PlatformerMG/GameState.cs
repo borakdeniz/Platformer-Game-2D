@@ -30,7 +30,6 @@ namespace PlatformerMG
 
         public override void Update(GameTime gameTime)
         {
-
         }
     }
 }

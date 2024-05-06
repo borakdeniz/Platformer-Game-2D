@@ -17,16 +17,15 @@ namespace PlatformerMG
         Texture2D introBackground;
         SpriteFont _buttonFont;
         ScoreManager _scoreManager;
-
         public EndState(PlatformerGame game, GraphicsDevice graphicsDevice, ContentManager content)
-          : base(game, graphicsDevice, content)
+        : base(game, graphicsDevice, content)
         {
             var buttonTexture = content.Load<Texture2D>("Controls/Button");
             _buttonFont = content.Load<SpriteFont>("Fonts/gameFont");
             introBackground = content.Load<Texture2D>("Overlays/background_menu");
 
             _scoreManager = _game.scoreManager;
-
+            _game.GameStarted = false;
             var restartButton = new Button(buttonTexture, _buttonFont)
             {
                 Position = new Vector2(500, 300),
@@ -36,9 +35,9 @@ namespace PlatformerMG
             restartButton.Click += restartButton_Click;
 
             _components = new List<Component>()
-      {
+        {
         restartButton,
-      };
+        };
         }
 
         public override void Update(GameTime gameTime)
@@ -53,7 +52,7 @@ namespace PlatformerMG
             spriteBatch.Draw(introBackground, Vector2.Zero, Color.White);
             foreach (var component in _components)
                 component.Draw(gameTime, spriteBatch);
-            spriteBatch.DrawString(_buttonFont, "Score:\n" + _game._score.ToString(), new Vector2(150,50), Color.White);
+            spriteBatch.DrawString(_buttonFont, "Score:\n" + _game._score.ToString(), new Vector2(150, 50), Color.White);
 
             spriteBatch.End();
         }
@@ -62,10 +61,12 @@ namespace PlatformerMG
             // remove sprites if they're not needed
         }
 
+
         private void restartButton_Click(object sender, EventArgs e)
         {
+            _game.GameFinished = false;
             _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
-            _game.LoadNextLevel();
         }
+
     }
 }

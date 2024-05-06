@@ -18,7 +18,7 @@ namespace PlatformerMG
         ScoreManager _scoreManager;
 
         public HighScoreState(PlatformerGame game, GraphicsDevice graphicsDevice, ContentManager content)
-          : base(game, graphicsDevice, content)
+            : base(game, graphicsDevice, content)
         {
             var buttonTexture = content.Load<Texture2D>("Controls/Button");
             _buttonFont = content.Load<SpriteFont>("Fonts/gameFont");
@@ -35,9 +35,9 @@ namespace PlatformerMG
             backButton.Click += backButton_Click;
 
             _components = new List<Component>()
-      {
-        backButton,
-      };
+    {
+    backButton,
+    };
         }
 
         public override void Update(GameTime gameTime)

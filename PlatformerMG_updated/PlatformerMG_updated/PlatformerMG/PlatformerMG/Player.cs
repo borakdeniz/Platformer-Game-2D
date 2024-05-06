@@ -14,10 +14,11 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
+using PlatformerMG;
 
 namespace PlatformerMG
 {
-    
+
     /// <summary>
     /// Our fearless adventurer!
     /// </summary>
@@ -217,6 +218,7 @@ namespace PlatformerMG
             Velocity = Vector2.Zero;
             isAlive = true;
             lives = 3;
+            level.timeRemaining = TimeSpan.FromMinutes(2.0);
             sprite.PlayAnimation(idleAnimation);
         }
 

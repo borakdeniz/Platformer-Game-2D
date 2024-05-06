@@ -15,7 +15,7 @@ namespace PlatformerMG
         public GameState(PlatformerGame game, GraphicsDevice graphicsDevice, ContentManager content)
           : base(game, graphicsDevice, content)
         {
-            game.GameStarted = true;
+            _game.GameStarted = true;
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)

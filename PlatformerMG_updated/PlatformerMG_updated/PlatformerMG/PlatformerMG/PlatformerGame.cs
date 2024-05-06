@@ -16,6 +16,7 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Input.Touch;
 using System.Collections.Generic;
 using System.Reflection;
+using PlatformerMG;
 
 
 namespace PlatformerMG
@@ -26,6 +27,7 @@ namespace PlatformerMG
     public class PlatformerGame : Microsoft.Xna.Framework.Game
     {
         public bool GameStarted = false;
+        public bool GameFinished = false;
         Camera camera;
 
         List<Rectangle> collisionRects;
@@ -46,8 +48,6 @@ namespace PlatformerMG
         // Parallaxing Layers
         ParallaxingBackground bgLayer1;
         ParallaxingBackground bgLayer2;
-
-        CommandManager commandManager = new CommandManager();
 
         // govern how fast our laser can fire.
         TimeSpan laserSpawnTime;
@@ -164,18 +164,6 @@ namespace PlatformerMG
             }
 
             camera = new Camera();
-            commandManager.AddKeyboardBinding(Keys.A, level.Player.walkLeft);
-            commandManager.AddKeyboardBinding(Keys.D, level.Player.walkRight);
-            commandManager.AddKeyboardBinding(Keys.Space, level.Player.Jump);
-
-
-
-
-
-
-
-
-
         }
 
         /// <summary>
@@ -194,14 +182,14 @@ namespace PlatformerMG
             currentState.PostUpdate(gameTime);
 
             // Handle polling for our input and handling high-level input
-            HandleInput(gameTime);
+            //Restart(gameTime);
 
-            if(GameStarted)
+            if(GameStarted && !GameFinished)
             {
                 level.Update(gameTime, keyboardState, gamePadState, touchState,
              accelerometerState, Window.CurrentOrientation);
 
-                if (level.TimeRemaining.Seconds == 0)
+                if (level.TimeRemaining.Seconds == 0 || !level.Player.IsAlive)
                 {
                     scoreManager.Add(new Score()
                     {
@@ -223,8 +211,6 @@ namespace PlatformerMG
                 bgLayer2.Update(gameTime);
 
                 collisionManager.Update(level.Player);
-
-                commandManager.Update();
             }
 
 
@@ -232,39 +218,22 @@ namespace PlatformerMG
 
         }
 
-        private void HandleInput(GameTime gameTime)
+        private void Restart()
         {
-            // get all of our input states
-            //keyboardState = Keyboard.GetState();
-            //gamePadState = GamePad.GetState(PlayerIndex.One);
-            //touchState = TouchPanel.GetState();
-            //accelerometerState = Accelerometer.GetState();
-
-            // Exit the game when back is pressed.
-            //if (gamePadState.Buttons.Back == ButtonState.Pressed)
-            //    Exit();
-
-            //bool continuePressed =
-            //    keyboardState.IsKeyDown(Keys.Space) ||
-            //    gamePadState.IsButtonDown(Buttons.A) ||
-            //    touchState.AnyTouch();
-
             // Perform the appropriate action to advance the game and
             // to get the player back to playing.
-                if (!level.Player.IsAlive)
-                {
-                    level.StartNewLife();
-                }
-                else if (level.TimeRemaining == TimeSpan.Zero)
-                {
-                    //if (level.ReachedExit)
-                    //    LoadNextLevel();
-                    //else
-                    //    ReloadCurrentLevel();
-                }
+            if (!level.Player.IsAlive)
+            {
+                LoadNextLevel();
+                level.StartNewLife();
+            }
+            else if (level.TimeRemaining == TimeSpan.Zero)
+            {
+                LoadNextLevel();
+                level.StartNewLife();
+            }
         }
-
-        public void LoadNextLevel()
+        private void LoadNextLevel()
         {
             // move to the next level
             //levelIndex = (levelIndex + 1) % numberOfLevels;
@@ -276,10 +245,11 @@ namespace PlatformerMG
             // Load the level.
             //string levelPath = string.Format("Content/Levels/{0}.txt", levelIndex);
 
-            string levelPath = string.Format("Content/Levels/{0}.txt",0);
+            string levelPath = string.Format("Content/Levels/{0}.txt",1);
             using (Stream fileStream = TitleContainer.OpenStream(levelPath))
                 level = new Level(Services, fileStream, levelIndex);
             level.CollisionTiles();
+
         }
 
         //public void ReloadCurrentLevel()
@@ -354,31 +324,34 @@ namespace PlatformerMG
             // Draw Number of Lives
             DrawShadowedString(hudFont, "LIVES: " + level.Player.Lives.ToString(), hudLocation + new Vector2(0.0f, timeHeight * 2.4f), Color.Yellow);
 
-            // Determine the status overlay message to show.
-            Texture2D status = null;
             if (level.TimeRemaining == TimeSpan.Zero)
             {
                 if (level.ReachedExit)
                 {
-                    status = winOverlay;
-                    nextState =  new EndState(this, graphics.GraphicsDevice, Content); 
+                    nextState =  new EndState(this, graphics.GraphicsDevice, Content);
+                    GameFinished = true;
+                    Restart();
                 }
                 else
                 {
-                    status = loseOverlay;
+                    nextState = new EndState(this, graphics.GraphicsDevice, Content);
+                    GameFinished = true;
+                    Restart();
                 }
             }
             else if (!level.Player.IsAlive)
             {
-                status = diedOverlay;
+                nextState = new EndState(this, graphics.GraphicsDevice, Content);
+                GameFinished = true;
+                Restart();
             }
 
-            if (status != null)
-            {
-                // Draw status message.
-                Vector2 statusSize = new Vector2(status.Width, status.Height);
-                spriteBatch.Draw(status, center - statusSize / 2, Color.White);
-            }
+            //if (status != null)
+            //{
+            //    // Draw status message.
+            //    Vector2 statusSize = new Vector2(status.Width, status.Height);
+            //    spriteBatch.Draw(status, center - statusSize / 2, Color.White);
+            //}
         }
 
         private void DrawShadowedString(SpriteFont font, string value, Vector2 position, Color color)

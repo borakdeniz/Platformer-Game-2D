@@ -16,6 +16,7 @@ using Microsoft.Xna.Framework.Audio;
 using System.IO;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Input;
+using System.Reflection.Emit;
 
 namespace PlatformerMG
 {
@@ -33,6 +34,7 @@ namespace PlatformerMG
         private Texture2D[] layers;
         // The layer which entities are drawn on top of.
         private const int EntityLayer = 2;
+        private CommandManager commandManager = new CommandManager();
 
 
 
@@ -58,7 +60,7 @@ namespace PlatformerMG
         {
             get { return score; }
         }
-        int score;
+        public int score;
 
         public bool ReachedExit
         {
@@ -71,7 +73,7 @@ namespace PlatformerMG
         {
             get { return timeRemaining; }
         }
-        TimeSpan timeRemaining;
+        public TimeSpan timeRemaining;
 
         private const int PointsPerSecond = 5;
 
@@ -101,9 +103,11 @@ namespace PlatformerMG
             content = new ContentManager(serviceProvider, "Content");
 
             timeRemaining = TimeSpan.FromMinutes(2.0);
-
             LoadTiles(fileStream);
 
+            commandManager.AddKeyboardBinding(Keys.A, Player.walkLeft);
+            commandManager.AddKeyboardBinding(Keys.D, Player.walkRight);
+            commandManager.AddKeyboardBinding(Keys.Space, Player.Jump);
             // Load background layer textures. For now, all levels must
             // use the same backgrounds and only use the left-most part of them.
             //layers = new Texture2D[3];
@@ -427,6 +431,8 @@ namespace PlatformerMG
             // Clamp the time remaining at zero.
             if (timeRemaining < TimeSpan.Zero)
                 timeRemaining = TimeSpan.Zero;
+
+            commandManager.Update();
         }
 
         /// <summary>

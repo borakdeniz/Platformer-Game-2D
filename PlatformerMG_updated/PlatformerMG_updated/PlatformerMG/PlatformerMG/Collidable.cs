@@ -84,7 +84,6 @@ namespace PlatformerMG
                 {
                     // Resolve the collision along the X axis.
                     player.Position = new Vector2(player.Position.X + depth.X, player.Position.Y);
-
                     // Perform further collisions with the new bounds.
                     bounds = player.BoundingRectangle;
                 }

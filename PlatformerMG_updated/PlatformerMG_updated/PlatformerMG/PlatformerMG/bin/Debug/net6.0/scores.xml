@@ -22,6 +22,10 @@
   </Score>
   <Score>
     <PlayerName>Bora</PlayerName>
+    <Value>90</Value>
+  </Score>
+  <Score>
+    <PlayerName>Bora</PlayerName>
     <Value>60</Value>
   </Score>
   <Score>
@@ -31,5 +35,29 @@
   <Score>
     <PlayerName>Bora</PlayerName>
     <Value>30</Value>
+  </Score>
+  <Score>
+    <PlayerName>Bora</PlayerName>
+    <Value>0</Value>
+  </Score>
+  <Score>
+    <PlayerName>Bora</PlayerName>
+    <Value>0</Value>
+  </Score>
+  <Score>
+    <PlayerName>Bora</PlayerName>
+    <Value>0</Value>
+  </Score>
+  <Score>
+    <PlayerName>Bora</PlayerName>
+    <Value>0</Value>
+  </Score>
+  <Score>
+    <PlayerName>Bora</PlayerName>
+    <Value>0</Value>
+  </Score>
+  <Score>
+    <PlayerName>Bora</PlayerName>
+    <Value>0</Value>
   </Score>
 </ArrayOfScore>

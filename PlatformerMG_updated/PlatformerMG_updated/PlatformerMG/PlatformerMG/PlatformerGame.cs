@@ -191,18 +191,16 @@ namespace PlatformerMG
 
                 camera.Follow(level.Player, graphics);
 
-                // update our level, passing down the GameTime along with all of our input states
-                base.Update(gameTime);
+
 
                 // Update the parallaxing background
                 bgLayer1.Update(gameTime);
                 bgLayer2.Update(gameTime);
 
-                collisionManager.Update(level.Player);
             }
-
-
-
+            // update our level, passing down the GameTime along with all of our input states
+            base.Update(gameTime);
+            collisionManager.Update(level.Player);
 
         }
 

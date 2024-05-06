@@ -189,22 +189,10 @@ namespace PlatformerMG
                 level.Update(gameTime, keyboardState, gamePadState, touchState,
              accelerometerState, Window.CurrentOrientation);
 
-                if (level.TimeRemaining.Seconds == 0 || !level.Player.IsAlive)
-                {
-                    scoreManager.Add(new Score()
-                    {
-                        PlayerName = "Bora",
-                        Value = level.Score,
-                        
-                    });
-                    _score = level.Score;
-                    ScoreManager.Save(scoreManager);
-                }
                 camera.Follow(level.Player, graphics);
 
                 // update our level, passing down the GameTime along with all of our input states
                 base.Update(gameTime);
-
 
                 // Update the parallaxing background
                 bgLayer1.Update(gameTime);
@@ -294,6 +282,55 @@ namespace PlatformerMG
             base.Draw(gameTime);
         }
 
+        private void EndGame()
+        {
+            if (level.TimeRemaining == TimeSpan.Zero)
+            {
+                if (level.ReachedExit)
+                {
+                    scoreManager.Add(new Score()
+                    {
+                        PlayerName = "Bora",
+                        Value = level.Score,
+
+                    });
+                    _score = level.Score;
+                    ScoreManager.Save(scoreManager);
+                    nextState = new EndState(this, graphics.GraphicsDevice, Content);
+                    GameFinished = true;
+                    Restart();
+                }
+                else
+                {
+                    scoreManager.Add(new Score()
+                    {
+                        PlayerName = "Bora",
+                        Value = level.Score,
+
+                    });
+                    _score = level.Score;
+                    ScoreManager.Save(scoreManager);
+                    nextState = new EndState(this, graphics.GraphicsDevice, Content);
+                    GameFinished = true;
+                    Restart();
+                }
+            }
+            else if (!level.Player.IsAlive)
+            {
+                scoreManager.Add(new Score()
+                {
+                    PlayerName = "Bora",
+                    Value = level.Score,
+
+                });
+                _score = level.Score;
+                ScoreManager.Save(scoreManager);
+                nextState = new EndState(this, graphics.GraphicsDevice, Content);
+                GameFinished = true;
+                Restart();
+            }
+
+        }
         private void DrawHud()
         {
             Rectangle titleSafeArea = GraphicsDevice.Viewport.TitleSafeArea;
@@ -324,34 +361,8 @@ namespace PlatformerMG
             // Draw Number of Lives
             DrawShadowedString(hudFont, "LIVES: " + level.Player.Lives.ToString(), hudLocation + new Vector2(0.0f, timeHeight * 2.4f), Color.Yellow);
 
-            if (level.TimeRemaining == TimeSpan.Zero)
-            {
-                if (level.ReachedExit)
-                {
-                    nextState =  new EndState(this, graphics.GraphicsDevice, Content);
-                    GameFinished = true;
-                    Restart();
-                }
-                else
-                {
-                    nextState = new EndState(this, graphics.GraphicsDevice, Content);
-                    GameFinished = true;
-                    Restart();
-                }
-            }
-            else if (!level.Player.IsAlive)
-            {
-                nextState = new EndState(this, graphics.GraphicsDevice, Content);
-                GameFinished = true;
-                Restart();
-            }
+            EndGame();
 
-            //if (status != null)
-            //{
-            //    // Draw status message.
-            //    Vector2 statusSize = new Vector2(status.Width, status.Height);
-            //    spriteBatch.Draw(status, center - statusSize / 2, Color.White);
-            //}
         }
 
         private void DrawShadowedString(SpriteFont font, string value, Vector2 position, Color color)

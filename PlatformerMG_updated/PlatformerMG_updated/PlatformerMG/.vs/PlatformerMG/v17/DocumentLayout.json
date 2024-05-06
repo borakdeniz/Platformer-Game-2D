@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\Github\\Platformer2D\\Platformer2D\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|D:\\Github\\Platformer2D\\Platformer2D\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\platformermg\\level.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|solutionrelative:platformermg\\level.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|d:\\github\\platformer2d\\platformer2d\\platformermg_updated\\platformermg_updated\\platformermg\\platformermg\\platformergame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|solutionrelative:platformermg\\platformergame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|D:\\Github\\Platformer2D\\Platformer2D\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\platformermg\\scoremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|solutionrelative:platformermg\\scoremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|D:\\Github\\Platformer2D\\Platformer2D\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\platformermg\\level.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|solutionrelative:platformermg\\level.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B28DBA6E-1274-4F0C-8C34-B0EF7A008201}|PlatformerMG\\PlatformerMG.csproj|D:\\Github\\Platformer2D\\Platformer2D\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\platformermg\\highscorestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -93,17 +93,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "PlatformerGame.cs",
               "DocumentMoniker": "D:\\Github\\Platformer2D\\Platformer2D\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\PlatformerGame.cs",
               "RelativeDocumentMoniker": "PlatformerMG\\PlatformerGame.cs",
               "ToolTip": "D:\\Github\\Platformer2D\\Platformer2D\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\PlatformerGame.cs",
               "RelativeToolTip": "PlatformerMG\\PlatformerGame.cs",
-              "ViewState": "AQIAAKoAAAAAAAAAAAAIwLcAAAAnAAAA",
+              "ViewState": "AQIAANcAAAAAAAAAAAAewOsAAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-13T00:00:04.48Z",
               "IsPinned": true,
@@ -111,16 +111,17 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Level.cs",
               "DocumentMoniker": "D:\\Github\\Platformer2D\\Platformer2D\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\Level.cs",
               "RelativeDocumentMoniker": "PlatformerMG\\Level.cs",
               "ToolTip": "D:\\Github\\Platformer2D\\Platformer2D\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\Level.cs",
               "RelativeToolTip": "PlatformerMG\\Level.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAQwEMAAAAAAAAA",
+              "ViewState": "AQIAAIIAAAAAAAAAAAAYwJAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-12T22:44:14.382Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -223,7 +224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ScoreManager.cs",
               "DocumentMoniker": "D:\\Github\\Platformer2D\\Platformer2D\\PlatformerMG_updated\\PlatformerMG_updated\\PlatformerMG\\PlatformerMG\\ScoreManager.cs",
               "RelativeDocumentMoniker": "PlatformerMG\\ScoreManager.cs",
@@ -231,8 +232,7 @@
               "RelativeToolTip": "PlatformerMG\\ScoreManager.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAQwA0AAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-05T13:55:38.358Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-05T13:55:38.358Z"
             },
             {
               "$type": "Document",

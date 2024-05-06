@@ -233,7 +233,7 @@ namespace PlatformerMG
             // Load the level.
             //string levelPath = string.Format("Content/Levels/{0}.txt", levelIndex);
 
-            string levelPath = string.Format("Content/Levels/{0}.txt",1);
+            string levelPath = string.Format("Content/Levels/{0}.txt",0);
             using (Stream fileStream = TitleContainer.OpenStream(levelPath))
                 level = new Level(Services, fileStream, levelIndex);
             level.CollisionTiles();

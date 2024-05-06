@@ -2,7 +2,23 @@
 <ArrayOfScore xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Score>
     <PlayerName>Bora</PlayerName>
+    <Value>980</Value>
+  </Score>
+  <Score>
+    <PlayerName>Bora</PlayerName>
     <Value>905</Value>
+  </Score>
+  <Score>
+    <PlayerName>Bora</PlayerName>
+    <Value>680</Value>
+  </Score>
+  <Score>
+    <PlayerName>Bora</PlayerName>
+    <Value>595</Value>
+  </Score>
+  <Score>
+    <PlayerName>Bora</PlayerName>
+    <Value>90</Value>
   </Score>
   <Score>
     <PlayerName>Bora</PlayerName>

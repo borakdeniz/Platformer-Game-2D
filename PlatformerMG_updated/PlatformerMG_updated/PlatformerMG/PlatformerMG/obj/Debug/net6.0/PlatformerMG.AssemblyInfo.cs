@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PlatformerMG")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e277df883c441a569d41439c5fc6b425b372233c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e530c7fabcbb015fe571d3756a89190d32c21bc3")]
 [assembly: System.Reflection.AssemblyProductAttribute("PlatformerMG")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PlatformerMG")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

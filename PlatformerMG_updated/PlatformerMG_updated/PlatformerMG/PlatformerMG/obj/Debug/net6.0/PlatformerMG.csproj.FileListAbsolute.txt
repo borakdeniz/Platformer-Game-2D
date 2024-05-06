@@ -135,9 +135,6 @@ D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\Pl
 D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Tiles\Exit.xnb
 D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Tiles\Platform.xnb
 D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\PlatformerMG.exe
-D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Levels\0.txt
-D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Levels\1.txt
-D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Levels\2.txt
 D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\PlatformerMG.deps.json
 D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\PlatformerMG.runtimeconfig.json
 D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\PlatformerMG.dll
@@ -174,3 +171,6 @@ D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\Pl
 D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Backgrounds\Layers\forest_background.xnb
 D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Controls\Button.xnb
 D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Overlays\background_menu.xnb
+D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Levels\1.txt
+D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Levels\2.txt
+D:\Github\Platformer2D\Platformer2D\PlatformerMG_updated\PlatformerMG_updated\PlatformerMG\PlatformerMG\bin\Debug\net6.0\Content\Levels\0.txt
